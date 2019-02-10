@@ -8,11 +8,10 @@ public:
 	~Matrix();
 
 	// Makes a matrix with 1 column out of given vector
-	static Matrix vectorToMatrix(std::vector<float> vec);
+	static Matrix vectorToMatrix(std::vector<float> vec, float bias);
 
 	void insert(float value, int i, int j);
 
-	void addBias(float bias);
 
 	void print();
 private:

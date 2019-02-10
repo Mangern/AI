@@ -27,14 +27,16 @@ Matrix::~Matrix()
 	delete [] matrix;
 }
 
-Matrix Matrix::vectorToMatrix(std::vector<float> vec)
+Matrix Matrix::vectorToMatrix(std::vector<float> vec, float bias)
 {
-	Matrix matrix(vec.size(), 1);
+	int rows = vec.size();
+	Matrix matrix(rows + 1, 1);
 	int i = 0;
 	for (float f : vec) {
 		matrix.insert(f, i, 0);
 		i++;
 	}
+	vec[rows] = bias;
 	return matrix;
 }
 
@@ -53,9 +55,4 @@ void Matrix::insert(float value, int i, int j)
 	matrix[i][j] = value;
 }
 
-void Matrix::addBias(float bias) {
-	if (cols > 1)return;
 
-	// Allocate a new row
-	matrix[rows][cols] = bias;
-}

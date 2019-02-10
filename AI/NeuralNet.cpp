@@ -12,8 +12,8 @@ NeuralNet::~NeuralNet()
 
 std::vector<float> NeuralNet::think(std::vector<float> input)
 {
-	Matrix inputMatrix = Matrix::vectorToMatrix(input);
-	inputMatrix.addBias(1.0f);
+
+	Matrix inputMatrix = Matrix::vectorToMatrix(input, 1.0f); // 1.0f is the bias
 
 	inputMatrix.print();
 
