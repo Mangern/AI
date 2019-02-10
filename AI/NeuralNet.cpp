@@ -8,6 +8,8 @@ NeuralNet::NeuralNet(int inputs, int hidden, int outputs) : wih(hidden, inputs +
 
 NeuralNet::~NeuralNet()
 {
+	wih.destroy();
+	who.destroy();
 }
 
 std::vector<float> NeuralNet::think(std::vector<float> input)
@@ -16,6 +18,8 @@ std::vector<float> NeuralNet::think(std::vector<float> input)
 	Matrix inputMatrix = Matrix::vectorToMatrix(input, 1.0f); // 1.0f is the bias
 
 	inputMatrix.print();
+
+	inputMatrix.destroy();
 
 	std::vector<float> output(1);
 	output[0] = 0.7f;

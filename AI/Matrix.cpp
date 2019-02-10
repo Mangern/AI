@@ -17,15 +17,16 @@ Matrix::Matrix(int rows, int cols) : rows(rows), cols(cols)
 	}
 }
 
-
-Matrix::~Matrix()
+void Matrix::destroy()
 {
 	// Free up memory
 	for (int i = 0; i < rows; i++) {
-		delete [] matrix[i];
+		delete[] matrix[i];
 	}
-	delete [] matrix;
+	delete[] matrix;
 }
+
+
 
 Matrix Matrix::vectorToMatrix(std::vector<float> vec, float bias)
 {
@@ -36,7 +37,7 @@ Matrix Matrix::vectorToMatrix(std::vector<float> vec, float bias)
 		matrix.insert(f, i, 0);
 		i++;
 	}
-	vec[rows] = bias;
+	matrix.insert(bias, rows, 0);
 	return matrix;
 }
 

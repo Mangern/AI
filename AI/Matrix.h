@@ -5,7 +5,8 @@ class Matrix
 {
 public:
 	Matrix(int rows, int cols);
-	~Matrix();
+	
+	void destroy();
 
 	// Makes a matrix with 1 column out of given vector
 	static Matrix vectorToMatrix(std::vector<float> vec, float bias);
